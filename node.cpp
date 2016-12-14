@@ -10,7 +10,7 @@ Node::Node(int valor)
 }
 
 void Node::imprimir(Node *arvore) {
-    if (arvore == NULL) {
+    if ((arvore == NULL) || (arvore->valor==0)) {
         cout << "()";
         return; //Condição de parada, não impimir árvores vazias
     }
@@ -21,17 +21,6 @@ void Node::imprimir(Node *arvore) {
         cout << ")";
 }
 
-Node Node::buscar(Node *no, int valor){
-    if(valor == no->valor)
-        return *no;
-    else
-    {
-        if(valor > no->valor)
-            buscar(no->direito,valor);
-        else
-            buscar(no->esquerdo,valor);
-    }
-}
 
 void Node::inserir(Node *raiz, int numero) {
     if(numero < raiz->valor)
@@ -67,47 +56,38 @@ void Node::remover(Node *arvore,int valor)
 {
     if(valor == arvore->valor)
     {
-        cout<<"IMPRIMINDO OS VALORES DA ESQUERDA E DIREITA"<<endl;
-
         if((arvore->esquerdo == NULL)&&(arvore->direito == NULL))
         {
             cout<<"NAO TEM FILHOS"<<endl;
+//HÁ UM PROBLEMA AQUI, POIS O PARÂMETRO É UMA VARIÁVEL LOCAL EM QUE PRECISO QUE RECEBA O VALOR NULO PARA RETORNAR Á VARIAVEL REAL.
+            arvore->valor=0;
+            arvore = NULL;
+            cout<<"RECEBEU UM ENDERECO NULO:"<<arvore<<endl;
             system("pause");
         }
-        if(((arvore->esquerdo !=NULL) && (arvore->direito ==NULL)) ||((arvore->esquerdo ==NULL) && (arvore->direito !=NULL)))
-        {
-            cout<<"NO TEM UM FILHO"<<endl;
-            system("pause");
-        }
-        if((arvore->direito != NULL) && (arvore->esquerdo!=NULL))
-        {
-            cout<<"NO TEM DOIS FILHOS"<<endl;
-            system("pause");
-        }
-    }
-    else
-    {
-        cout<<"não ha esse valor";
-        system("pause");
-    }
-//    {
-//        Node *temp;
-//        temp=arvore;
-//        arvore = NULL;
-//  //      delete[] temp;
-//        cout<<"DELETADO!";
-//        system("pause");
-//    }
+//        if(((arvore->esquerdo !=NULL) && (arvore->direito ==NULL)) ||((arvore->esquerdo ==NULL) && (arvore->direito !=NULL)))
+//        {
+//            cout<<"NO TEM UM FILHO"<<endl;
 
-//    cout<<"O ENDEREÇO QUE ESTA NA ARVORE EH:"<<arvore<<endl;
-//    Node *no=NULL;
-//    *no = (arvore->buscar(arvore,valor));
-//    if((no->esquerdo == 0)&&(no->direito == 0))
-//    {
-//        Node *temp = no;
-//        no = NULL;
-//        delete temp;
+//            system("pause");
+//        }
+//        if((arvore->direito != NULL) && (arvore->esquerdo!=NULL))
+//        {
+//            cout<<"NO TEM DOIS FILHOS"<<endl;
+//            system("pause");
+//        }
 //    }
-//    cout<<"\t***NO EXCLUIDO!***";
+//    else
+//    {
+//        if(valor < arvore->valor)
+//        {
+//            remover(arvore->esquerdo,valor);
+//        }
+//        if(valor > arvore->valor)
+//        {
+//            remover(arvore->direito,valor);
+//        }
+    }
+
 }
 

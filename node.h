@@ -15,7 +15,7 @@ public:
     void imprimir(Node *arvore);
     Node buscar(Node *no, int valor);
     void inserir (Node *raiz, int valor);
-    void remover (Node *arvore, int valor);
+    bool remover (Node *arvore, int valor);
 };
 
 #endif // NODE_H

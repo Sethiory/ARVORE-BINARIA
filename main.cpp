@@ -53,7 +53,12 @@ int main()
             cout<<"O ENDERECO QUE ESTA NA RAIZ EH:"<<raiz<<endl;
             cout<<"O ENDERECO DA RAIZ EH:"<<&raiz<<endl;
             if(raiz != NULL)
-            raiz->remover(raiz,numero);
+            {
+                if(raiz->remover(raiz,numero)==true)
+                {
+                    raiz = NULL;
+                }
+            }
             else
             {
                 cout<<"NÃO HÁ NADA NA ARVORE!"<<endl;

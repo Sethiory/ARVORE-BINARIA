@@ -14,19 +14,45 @@ int main()
         system("cls");
         cout<<"\t _____________________________________________\n"
               "\t|0-SAIR                                       |\n"
-              "\t|1-INSERIR                                    |\n"
-              "\t|2-EXCLUIR                                    |\n"
-              "\t|3-IMPRIMIR                                   |\n"
+              "\t|1-BUSCAR                                     |\n"
+              "\t|2-INSERIR                                    |\n"
+              "\t|3-EXCLUIR                                    |\n"
+              "\t|4-IMPRIMIR                                   |\n"
               "\t|_____________________________________________|\n"<<endl;
 
         cin>>opcao;
         switch(opcao)
         {
-        case 0:
+        case 0:{
             parar=false;
-            break;
+            break;}
 
-        case 1:
+        case 1:{
+            cout<<"INSIRA O VALOR QUE QUER ENCONTRAR:"<<endl;
+            cin>>numero;
+
+            //Cria um ponteito auxiliar
+            Node *aux;
+
+            //O Ponteiro auxiliar aponta para o nó retornado pelo MÉTODO buscar
+            aux=raiz->buscar(raiz,numero);
+
+            //Se não tiver encontrado o valor na árvore, aux recebeu nulo...
+            if(aux == NULL)
+            {
+                cout<<"\t**NAO TEM NO COM ESSE VALOR!"<<endl;
+                system("pause");
+            }
+
+            //...ou então
+            else
+            {
+                cout<<"\t**VALOR ENCONTRADO! ["<<aux->valor<<"]"<<endl;
+                system("pause");
+            }
+            break;}
+
+        case 2:{
             if(raiz==NULL)
             {
 
@@ -45,36 +71,35 @@ int main()
                         raiz->inserir(raiz,numero);
                 }
             }
-            break;
+            break;}
 
-        case 2:
+        case 3:{
             cout<<"INSIRA O VALOR A SER REMOVIDO"<<endl;
             cin>>numero;
-            cout<<"O ENDERECO QUE ESTA NA RAIZ EH:"<<raiz<<endl;
-            cout<<"O ENDERECO DA RAIZ EH:"<<&raiz<<endl;
-            if(raiz != NULL)
+
+            Node *remove;
+            remove=raiz->buscar(raiz,numero);
+            if(remove == NULL)
             {
-                if(raiz->remover(raiz,numero)==true)
-                {
-                    raiz = NULL;
-                }
+                cout<<"NAO TEM ESSE VALOR NA ARVORE!"<<endl;
             }
             else
             {
-                cout<<"NÃO HÁ NADA NA ARVORE!"<<endl;
-                system("pause");
+  //              remove->remover(remove,numero);
             }
-            break;
+            break;}
 
-        case 3:
+        case 4:{
             raiz->imprimir(raiz);
             system("pause");
-            break;
+            break;}
+
+
         }
     }
 
     system("pause");
     return 0;
 
-   }
+}
 

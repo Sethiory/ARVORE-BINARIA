@@ -13,7 +13,7 @@ public:
 
     Node(int valor);
     void imprimir(Node *arvore);
-    Node buscar(Node *no, int valor);
+    Node *buscar(Node *raiz, int valor);
     void inserir (Node *raiz, int valor);
     bool remover (Node *arvore, int valor);
 };

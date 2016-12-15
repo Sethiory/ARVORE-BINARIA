@@ -70,10 +70,11 @@ int main()
                     if(numero!=0)
                         raiz->inserir(raiz,numero);
                 }
+                numero=1;
             }
             break;}
 
-        case 3:{
+/*        case 3:{
             cout<<"INSIRA O VALOR A SER REMOVIDO"<<endl;
             cin>>numero;
 
@@ -85,9 +86,9 @@ int main()
             }
             else
             {
-  //              remove->remover(remove,numero);
+                remove->remover(remove,numero);
             }
-            break;}
+            break;}*/
 
         case 4:{
             raiz->imprimir(raiz);

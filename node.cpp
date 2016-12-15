@@ -60,7 +60,6 @@ void Node::inserir(Node *raiz, int numero) {
         {
             inserir(raiz->esquerdo,numero);
         }
-        cout<<"inserido"<<endl;
     }
     if(numero > raiz->valor)
     {
@@ -73,40 +72,48 @@ void Node::inserir(Node *raiz, int numero) {
         {
             inserir(raiz->direito,numero);
         }
-        cout<<"inserido";
 
     }
 }
 
-/*bool Node::remover(Node *arvore,int valor)
+bool Node::remover(Node *arvore,int valor)
 {
-    Node no=arvore->buscar(arvore,valor);
-    if(valor == no.valor)
+    Node *aux;
+    aux=arvore->buscar(arvore,valor);
+    if(aux = NULL)
     {
-        if((no.esquerdo == NULL)&&(no.direito == NULL))
-        {
-            cout<<"NAO TEM FILHOS"<<endl;
-            //HÁ UM PROBLEMA AQUI, POIS O PARÂMETRO É UMA VARIÁVEL LOCAL EM QUE PRECISO QUE RECEBA O VALOR NULO PARA RETORNAR Á VARIAVEL REAL.
-            arvore->valor=0;
-            system("pause");
-            return true;
-        }
-        if(((arvore->esquerdo !=NULL) && (arvore->direito ==NULL)) ||((arvore->esquerdo ==NULL) && (arvore->direito !=NULL)))
-        {
-            cout<<"NO TEM UM FILHO"<<endl;
-            system("pause");
-        }
-        if((arvore->direito != NULL) && (arvore->esquerdo!=NULL))
-        {
-            cout<<"NO TEM DOIS FILHOS"<<endl;
-            system("pause");
-        }
+        cout<<"\t**VALOR NAO ENCONTRADO PARA SER EXCLUIDO!"<<endl;
     }
-    else
-    {
-        cout<<"não ha esse valor";
-        system("pause");
-        return false;
-    }
+
+
+
+//    Node no=arvore->buscar(arvore,valor);
+//    if(valor == no.valor)
+//    {
+//        if((no.esquerdo == NULL)&&(no.direito == NULL))
+//        {
+//            cout<<"NAO TEM FILHOS"<<endl;
+//            //HÁ UM PROBLEMA AQUI, POIS O PARÂMETRO É UMA VARIÁVEL LOCAL EM QUE PRECISO QUE RECEBA O VALOR NULO PARA RETORNAR Á VARIAVEL REAL.
+//            arvore->valor=0;
+//            system("pause");
+//            return true;
+//        }
+//        if(((arvore->esquerdo !=NULL) && (arvore->direito ==NULL)) ||((arvore->esquerdo ==NULL) && (arvore->direito !=NULL)))
+//        {
+//            cout<<"NO TEM UM FILHO"<<endl;
+//            system("pause");
+//        }
+//        if((arvore->direito != NULL) && (arvore->esquerdo!=NULL))
+//        {
+//            cout<<"NO TEM DOIS FILHOS"<<endl;
+//            system("pause");
+//        }
+//    }
+//    else
+//    {
+//        cout<<"não ha esse valor";
+//        system("pause");
+//        return false;
+//    }
 }
-*/
+

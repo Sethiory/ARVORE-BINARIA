@@ -50,74 +50,83 @@ Node* Node::buscar(Node *no, int valor){
 
 Node* Node::pai(Node *filho,Node *raiz, int valor){
     cout<<"ENTROU NO METODO"<<endl;
-    if(raiz != NULL)
+    cout<<&filho->valor<<endl;
+    cout<<&raiz->valor<<endl;
+    if((filho != NULL) && (&filho->valor != &raiz->valor))
     {
-        cout<<"A ARVORE NAO ESTA VAZIA!"<<endl;
-        if(filho->valor != 0){
-            cout<<"O FILHO NAO EH NULO!"<<endl;
-
-        if(raiz->valor == filho->valor)
+/* TUDO ISSO AQUI PODE SER APAGADO
+ *         cout<<"FILHO E DIFERENTE DE NULO"<<endl;
+        if(raiz != NULL)
         {
-            cout<<"O VALOR PROCURADO EH A RAIZ!"<<endl;
-            Node *pai;
-            if(raiz->esquerdo != 0)
-            {
-                raiz = raiz->esquerdo;
-                while(raiz->direito != 0)
+            cout<<"A ARVORE NAO ESTA VAZIA!"<<endl;
+            if(filho->valor != 0){
+                cout<<"O FILHO NAO EH NULO!"<<endl;
+
+                if(raiz->valor == filho->valor)
                 {
-                    raiz = raiz->direito;
+                    cout<<"O VALOR PROCURADO EH A RAIZ!"<<endl;
+                    Node *pai;
+                    if(raiz->esquerdo != 0)
+                    {
+                        raiz = raiz->esquerdo;
+                        while(raiz->direito != 0)
+                        {
+                            raiz = raiz->direito;
+                        }
+                        pai = raiz;
+                        return pai;
+                    }
+                    else
+                    {   if(raiz->direito != 0)
+                        {
+                            pai = raiz->direito;
+                            return pai;
+                        }
+                        else
+                            return pai=NULL;
+                    }
                 }
-                pai = raiz;
-                return pai;
-            }
-            else
-            {   if(raiz->direito != 0)
-                {
-                    pai = raiz->direito;
-                    return pai;
-                }
+*/
                 else
-                    return pai=NULL;
+                {
+                    cout<<"O VALOR NAO EH A RAIZ"<<endl;
+                    if(filho->valor < raiz->valor)
+                    {
+                        cout<<"VALOR MENOR QUE A RAIZ!"<<endl;
+                        if(valor == filho->valor)
+                        {
+                            cout<<"ENCONTROU O VALOR!"<<endl;
+                            Node *pai;
+                            pai = raiz;
+                            return pai;
+                        }
+                        else
+                        {
+                            Node *temp;
+                            temp = pai(filho,raiz->esquerdo,valor);
+                            return temp;
+                        }
+                    }
+                    if(filho->valor > raiz->valor)
+                    {
+                        if(raiz->valor == filho->direito->valor)
+                        {
+                            Node *pai;
+                            pai=raiz;
+                            return pai;
+                        }
+                        else
+                        {
+                            Node *temp;
+                            temp = pai(filho,raiz->direito,valor);
+                            return temp;
+                        }
+                    }
+                }
             }
         }
-
-        else
-        {
-            cout<<"O VALOR NAO EH A RAIZ"<<endl;
-            if(filho->valor < raiz->valor)
-            {
-                cout<<"VALOR MENOR QUE A RAIZ!"<<endl;
-                if(valor == filho->valor)
-                {
-                    cout<<"ENCONTROU O VALOR!"<<endl;
-                    Node *pai;
-                    pai = raiz;
-                    return pai;
-                }
-                else
-                {
-                    Node *temp;
-                    temp = pai(filho,raiz->esquerdo,valor);
-                    return temp;
-                }
-            }
-            if(filho->valor > raiz->valor)
-            {
-                if(raiz->valor == filho->direito->valor)
-                {
-                    Node *pai;
-                    pai=raiz;
-                    return pai;
-                }
-                else
-                {
-                    Node *temp;
-                    temp = pai(filho,raiz->direito,valor);
-                    return temp;
-                }
-            }
-        }
-    }}
+    }
+    cout<<"NAO SATISFEZ"<<endl;
     return raiz=NULL;
 }
 

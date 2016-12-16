@@ -18,6 +18,7 @@ int main()
               "\t|2-INSERIR                                    |\n"
               "\t|3-EXCLUIR                                    |\n"
               "\t|4-IMPRIMIR                                   |\n"
+              "\t|5-BUSCAR PAI                                 |\n"
               "\t|_____________________________________________|\n"<<endl;
 
         cin>>opcao;
@@ -95,9 +96,26 @@ int main()
             system("pause");
             break;}
 
+        case 5:{
+            cout<<"INSIRA O VALOR QUE QUER ENCONTRAR O NO PAI:"<<endl;
+            cin>>numero;
+            Node *buscapai;
+            buscapai=raiz->pai(raiz->buscar(raiz,numero),raiz,numero);
+            if(buscapai == NULL)
+            {
+                cout<<"\t**NAO TEM PAI PARA ESSE VALOR!"<<endl;
+                system("pause");
+            }
+            else
+            {
+                cout<<"\t**O PAI DO VALOR INSERIDO EH: ["<<buscapai->valor<<"]"<<endl;
+                system("pause");
+            }
+            break;}
+        }
 
         }
-    }
+
 
     system("pause");
     return 0;

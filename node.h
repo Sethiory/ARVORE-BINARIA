@@ -16,6 +16,7 @@ public:
     Node *buscar(Node *raiz, int valor);
     void inserir (Node *raiz, int valor);
     bool remover (Node *arvore, int valor);
+    Node *pai(Node *filho, Node *raiz, int valor);
 };
 
 #endif // NODE_H

@@ -14,11 +14,11 @@ int main()
         system("cls");
         cout<<"\t _____________________________________________\n"
               "\t|0-SAIR                                       |\n"
-              "\t|1-BUSCAR                                     |\n"
-              "\t|2-INSERIR                                    |\n"
-              "\t|3-EXCLUIR                                    |\n"
+              "\t|1-BUSCAR NO                                  |\n"
+              "\t|2-INSERIR NO                                 |\n"
+//              "\t|3-EXCLUIR                                    |\n"
               "\t|4-IMPRIMIR                                   |\n"
-              "\t|5-BUSCAR PAI                                 |\n"
+              "\t|5-BUSCAR NO  PAI                             |\n"
               "\t|_____________________________________________|\n"<<endl;
 
         cin>>opcao;
@@ -75,21 +75,21 @@ int main()
             }
             break;}
 
-/*        case 3:{
-            cout<<"INSIRA O VALOR A SER REMOVIDO"<<endl;
-            cin>>numero;
+//        case 3:{
+//            cout<<"INSIRA O VALOR A SER REMOVIDO"<<endl;
+//            cin>>numero;
 
-            Node *remove;
-            remove=raiz->buscar(raiz,numero);
-            if(remove == NULL)
-            {
-                cout<<"NAO TEM ESSE VALOR NA ARVORE!"<<endl;
-            }
-            else
-            {
-                remove->remover(remove,numero);
-            }
-            break;}*/
+//            Node *remove;
+//            remove=raiz->buscar(raiz,numero);
+//            if(remove == NULL)
+//            {
+//                cout<<"NAO TEM ESSE VALOR NA ARVORE!"<<endl;
+//            }
+//            else
+//            {
+//                remove->remover(raiz,numero);
+//            }
+//            break;}
 
         case 4:{
             raiz->imprimir(raiz);
@@ -100,7 +100,7 @@ int main()
             cout<<"INSIRA O VALOR QUE QUER ENCONTRAR O NO PAI:"<<endl;
             cin>>numero;
             Node *buscapai;
-            buscapai=raiz->pai(raiz->buscar(raiz,numero),raiz,numero);
+            buscapai=raiz->pai(raiz->buscar(raiz,numero),raiz);
             if(buscapai == NULL)
             {
                 cout<<"\t**NAO TEM PAI PARA ESSE VALOR!"<<endl;

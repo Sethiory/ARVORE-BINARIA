@@ -15,8 +15,8 @@ public:
     void imprimir(Node *arvore);
     Node *buscar(Node *raiz, int valor);
     void inserir (Node *raiz, int valor);
-    bool remover (Node *arvore, int valor);
-    Node *pai(Node *filho, Node *raiz, int valor);
+    void remover(Node *arvore, int numero);
+    Node *pai(Node *filho, Node *raiz);
 };
 
 #endif // NODE_H
